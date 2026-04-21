@@ -1,0 +1,17 @@
+//Write a program thatprint the square of the numbers from 1-n
+package practice;
+
+import java.util.Scanner;
+
+public class Practice{
+
+     pulic static void main(String[] args){
+             Scanner input=new Scanner(System.in);
+             System.out.print("Enter n: ");
+             int n= input.nextInt();
+
+            for(int i= 1;i<= n ; i++){
+                System.out.print("n :" +i "*" + i "=" + (i*i);
+    }
+  }
+}
