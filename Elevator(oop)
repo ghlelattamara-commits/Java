@@ -1,0 +1,81 @@
+package elevator1;
+
+
+public class Elevator1 {
+    
+   
+    
+    private char speed;
+    private int floors;
+
+    public Elevator1() {
+        speed ='F';
+        floors=4;
+    }
+
+    public Elevator1(char speed, int floors) {
+        this.speed = speed;
+        this.floors = floors;
+    }
+
+    public char getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(char speed) {
+        if(speed=='F' || speed=='S')
+        this.speed = speed;
+        System.out.println("Invalid Speed");
+    }
+
+    public int getFloors() {
+        return floors;
+    }
+
+    public void setFloors(int floors) {
+        if(floors>=1 || floors<=20){
+              this.floors = floors;
+        }
+        System.out.println("Invalid Floor");     
+    }
+
+    @Override
+    public String toString() {
+        return "Elevator1{" + "speed=" + speed + ", floors=" + floors + '}';
+    }
+    
+    public double  getSpeedCost(){
+       double SpeedCost=0;
+        if(speed=='F'){
+            SpeedCost=3000;
+        }
+        if(speed=='S'){
+            SpeedCost=1500;
+        }
+        else{
+            System.out.println("Invalid SpeedCost");
+        }
+        return SpeedCost;
+    }
+    
+     public double getFloorCost(){
+         double FloorCost=0;
+         if(floors<=1 && floors>=5){
+             FloorCost=floors*2000;
+         }
+         if(floors<=6 && floors>=10){
+             FloorCost=floors*1500;
+         }
+         if(floors<=11 && floors>=20){
+             FloorCost=floors*1000;
+         }
+        return FloorCost;
+    }
+     
+      public double  getTotalCost(){
+           double TotalCost=getSpeedCost()+getFloorCost()+100;
+        return TotalCost;
+       
+    }
+}
+   
