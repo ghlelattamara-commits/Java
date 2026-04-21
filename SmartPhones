@@ -1,0 +1,82 @@
+package smartphone;
+
+public class SmartPhone {
+
+    private String brand;
+    private int storage;
+
+    public SmartPhone() {
+        brand = "Generic";
+        storage = 64;
+    }
+
+    public SmartPhone(String brand, int storage) {
+        this.brand = brand;
+        this.storage = storage;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        if (brand == null) {
+            System.out.println("Invalid brand");
+        } else {
+            this.brand = brand;
+        }
+    }
+
+    public int getStorage() {
+        return storage;
+    }
+
+    public void setStorage(int storage) {
+        if (storage >= 32 && storage <= 1024) {
+            this.storage = storage;
+        } else {
+            System.out.println("Invalid storage");
+
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "SmartPhone{" + "brand=" + brand + ", storage=" + storage + '}';
+    }
+
+    public double BrandCost() {
+        double BrandCost = 0;
+        if (brand == "Apple") {
+            BrandCost = 1000;
+        }
+        if (brand == "Samsung") {
+            BrandCost = 800;
+        }
+        if (brand == "Generic") {
+            BrandCost = 500;
+        }
+        return BrandCost;
+    }
+
+    public double StorageCost() {
+        double StorageCost = 0;
+        if (storage >= 32 && storage <= 128) {
+            StorageCost = storage * 4;
+        }
+        if (storage >= 129 && storage <= 512) {
+            StorageCost = storage * 3;
+        }
+        if (storage >= 513 && storage <= 1024) {
+            StorageCost = storage * 2;
+        }
+        return StorageCost;
+    }
+
+    public double TotalCost() {
+        double TotalCost = BrandCost() + StorageCost();
+
+        return 0;
+    }
+
+}
