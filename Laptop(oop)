@@ -1,0 +1,86 @@
+package laptop;
+
+public class Laptop {
+
+    private String brand;
+    private int ram;
+
+    public Laptop() {
+        brand = "Generatic";
+        ram = 8;
+    }
+
+    public Laptop(String brand, int ram) {
+        this.brand = brand;
+        this.ram = ram;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        if (brand == null) {
+            System.out.println("Invalid Brand");
+        } else {
+            this.brand = brand;
+        }
+    }
+
+    public int getRam() {
+        return ram;
+    }
+
+    public void setRam(int ram) {
+        if (ram >= 4 && ram <= 64) {
+            this.ram = ram;
+        }
+    }
+
+    public double getBrandCost() {
+        double getBrandCost = 0;
+
+        if (brand.equals("Dell")) {
+            getBrandCost = 900;
+        }
+        if (brand.equals("HP")) {
+            getBrandCost = 800;
+        }
+        if (brand.equals("Generic")) {
+            getBrandCost = 500;
+        }
+
+        return getBrandCost;
+    }
+
+    public double getRamCost() {
+        double getRamCost = 0;
+        if (ram >= 4 && ram <= 16) {
+            getRamCost = ram * 10;
+        }
+        if (ram >= 17 && ram <= 32) {
+            getRamCost = ram * 8;
+        }
+        if (ram >= 33 && ram <= 64) {
+            getRamCost = ram * 6;
+        }
+        return getRamCost;
+    }
+
+    public double getTotalCost() {
+        double getTotalCost = 0;
+
+        getTotalCost = getBrandCost() + getRamCost();
+        return getTotalCost;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Laptop{" + "brand=" + brand + ", ram=" + ram + '}';
+    }
+
+    public void upgradeRam(int extra) {
+        ram += extra;
+    }
+}
