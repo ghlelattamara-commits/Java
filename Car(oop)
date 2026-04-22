@@ -1,0 +1,87 @@
+
+package car;
+
+public class Car {
+    
+       private String brand;
+       private int engSize;
+
+    public Car() {
+        brand="Generic";
+        engSize=1600;
+    }
+
+    public Car(String brand, int engSize) {
+        this.brand = brand;
+        this.engSize = engSize;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        if(brand==null){
+            System.out.println("Invalid Brand");
+        }
+        else{
+        this.brand = brand;   
+        }
+    }
+
+    public int getEngSize() {
+        return engSize;
+    }
+
+    public void setEngSize(int engSize) {
+        if(engSize>=5000 && engSize<=1000){
+        this.engSize = engSize;
+    }
+        else{
+            System.out.println("Invalid Engin Size");
+        }
+    }
+    
+    public double getBrandCost(){
+        double getBrandCost=0;
+        if(brand.equals("Toyota")){
+            getBrandCost=20000;
+        }
+        if(brand.equals("BMW")){
+            getBrandCost=40000;
+        }
+        if(brand.equals("Generic")){
+            getBrandCost=10000;
+        }
+          return getBrandCost;
+    }
+        public double getEngineCost(){
+            double getEngineCost=0;
+            if(engSize>=1000 && engSize<=2000){
+               getEngineCost= engSize*5;
+            }
+            if(engSize>=2001 && engSize<=3500){
+                getEngineCost=engSize*4;
+            }
+            if(engSize>=3501 && engSize<=5000){
+                getEngineCost=engSize*3;
+            }
+            return getEngineCost;
+        }  
+        
+        public double getTotalCost(){
+            double getTotalCost;
+            getTotalCost=getBrandCost()+getEngineCost();
+            return getTotalCost;
+        }
+        
+        public void upgradeEngine(int extra){
+           engSize+= extra;
+        }
+    @Override
+    public String toString() {
+        return "Car{" + "brand=" + brand + ", engSize=" + engSize + '}';
+    }
+       
+       
+}
